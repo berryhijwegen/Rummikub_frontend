@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.container__main {
+  background-color: #E1D7AB;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    margin-bottom: 47px;
+    font-size: 32px;
+  }
+}

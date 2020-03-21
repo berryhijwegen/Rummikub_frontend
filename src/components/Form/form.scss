@@ -1,0 +1,41 @@
+.container__form {
+    width: 40vw;
+    height: 500px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    background-color: #C0A685;
+    border-radius: 10px;
+
+    form {
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+
+        .submit__button {
+            border: none;
+            background-color: #A67C6A;
+            border: 2px solid #E1D7AB;
+            font-size: 32px;
+            display: block;
+            outline: none;
+            width: 600px;
+            min-width: 400px;
+            border-radius: 10px;
+            color: rgb(248, 240, 204);
+        }
+    
+        .field {
+            margin: 10px 0;
+            text-align: center;
+            min-width: 300px;
+            font-size: 32px;
+        }
+    }
+    hr {
+        border: 1px solid black;
+        width: 100%;
+    }
+}
