@@ -7,4 +7,14 @@
     align-items: center;
     background-color: #C0A685;
     border-radius: 10px;
+    text-align: center;
+    
+    .bolded {
+        font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 100vw;
+        height: 100vh;
+    }
 }
