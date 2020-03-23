@@ -15,6 +15,10 @@ export default function WaitingRoom(props){
         setCountDown('');
     })
         
+    props.socket.on('start', data => {
+        console.log(data); 
+    })
+
 
     return (
         <div className="container__waiting">
