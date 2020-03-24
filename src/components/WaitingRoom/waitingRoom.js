@@ -1,23 +1,22 @@
 import './waitingRoom.scss';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function WaitingRoom(props){
+export default function WaitingRoom(props) {
     const [countDown, setCountDown] = useState('');
 
-    props.socket.on('countdown', data => {
-        console.log(data);
-        setCountDown(data['seconds_left'])
-    });
-    
-    props.socket.on('cancel_start', data => {
-        console.log(data); 
-        setCountDown('');
-    })
-        
-    props.socket.on('start', data => {
-        console.log(data); 
-    })
+    useEffect(() => {
+        props.socket.on('countdown', data => {
+            console.log(data);
+            setCountDown(data['seconds_left'])
+        });
+
+        props.socket.on('cancel_start', data => {
+            console.log(data);
+            setCountDown('');
+        })
+    }, [props.socket])
+
 
 
     return (

@@ -5,10 +5,10 @@ export default function Form(props) {
   const [usernameCreate, setUsernameCreate] = useState('');
   const [maxPlayers, setMaxPlayers] = useState(2);
 
-  
+
   const [usernameJoin, setUsernameJoin] = useState('');
   const [roomNumber, setRoomNumber] = useState('');
-  
+
   const [joinError, setJoinError] = useState('');
   const [createError, setCreateError] = useState('');
 
@@ -19,10 +19,10 @@ export default function Form(props) {
 
   const handleJoinSubmit = event => {
     event.preventDefault();
-    if (usernameJoin && !(roomNumber === '')){
+    if (usernameJoin && !(roomNumber === '')) {
       props.joinOnClick(usernameJoin, roomNumber);
     }
-    else if (roomNumber === ''){
+    else if (roomNumber === '') {
       setJoinError("Room Number is required to join room!");
     }
     else {
@@ -33,13 +33,13 @@ export default function Form(props) {
 
   const handleCreateSubmit = event => {
     event.preventDefault();
-    if (usernameCreate){
+    if (usernameCreate) {
       props.createOnClick(maxPlayers, usernameCreate);
     }
     else {
       setCreateError("Username is required to create room!");
     }
-    
+
   }
 
   props.socket.on('join_error', data => setJoinError(data.error));
@@ -52,14 +52,14 @@ export default function Form(props) {
       <form onSubmit={handleJoinSubmit}>
         <input type="number" className="field" name="room_input" id="room_input" onChange={handleRoomNumberChange} value={roomNumber} />
         <input type="text" className="field" name="username" id="username" placeholder="Username" onChange={handleUsernameJoinChange} value={usernameJoin} />
-        {joinError ? <p>{joinError }</p> : null}
+        {joinError ? <p>{joinError}</p> : null}
         <input type="submit" className="submit__button" value="Join Room" />
       </form>
       Or...
-      <hr/>
+      <hr />
       Create Room
       <form onSubmit={handleCreateSubmit}>
-        <input type="number" className="field" name="maxPlayers" id="maxPlayers" onChange={handleMaxPlayersChange} value={maxPlayers} min="2" max="4"/>
+        <input type="number" className="field" name="maxPlayers" id="maxPlayers" onChange={handleMaxPlayersChange} value={maxPlayers} min="2" max="4" />
         <input type="text" className="field" name="username" id="username" placeholder="Username" onChange={handleUsernameCreateChange} value={usernameCreate} />
         {createError ? <p>{createError}</p> : null}
         <input type="submit" className="submit__button" value="Create Room" />
